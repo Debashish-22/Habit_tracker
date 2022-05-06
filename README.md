@@ -21,7 +21,7 @@ It's a habit tracker app where we can define habits and track them.
   * Mark as complete.
   * Delete the habit.
 * History page to check weekly perfomance based on Status ( "Done", "Not Done", "None").
-  * A user can toggle between the three (above mentioned) statuses of a habit.
+  * A user can toggle between the three (above mentioned) and update statuses of a habit.
 
 * All the data are persistent on Database.
 
