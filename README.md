@@ -41,6 +41,7 @@ on terminal write:
 npm install 
 npm start
 ```
+Now the Server runnning, open the link (http://localhost:8000) to acess the interface.
 
 ## Folder Structure
 * `app.js` - Entry point of our application. This file defines our express server.
