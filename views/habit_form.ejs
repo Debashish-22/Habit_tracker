@@ -1,0 +1,22 @@
+<div class="bookmarks-head mb-1 p-2 d-flex align-content-center">
+    <a href="/" class="back d-flex justify-content-center align-items-center">
+        <h5 class="mb-0 text-light"><i class="bi bi-house-fill"></i></h5>
+    </a>
+    <h4 class="mb-0 fw-600 mx-auto text-light">New Habit</h4>
+</div>
+        
+<form action="/habit/create-habit" method="post" class="p-3 d-flex flex-column justify-content-center align-items-center">
+
+    <div class="col-12 mb-3">
+        <label for="exampleFormControlInput1" class="form-label text-light fw-600">Habit Name</label>
+        <input name="habitName" autocomplete="off" required="true" type="text" class="form-control" id="exampleFormControlInput1" placeholder="e.g: Drink Water">
+    </div>
+    <div class="input-group mb-3">
+        
+        <input name="totalReps" type="text" autocomplete="off" class="form-control" required="true" placeholder="e.g:  8" aria-label="reps" aria-describedby="basic-addon2">
+        <span class="input-group-text" id="basic-addon2">times per day</span>
+    </div>
+    
+    <button class="btn text-light bg-primary " type="submit">Add habit</button>
+
+</form>

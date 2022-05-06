@@ -1,0 +1,39 @@
+.history-list{
+    max-height: 400px;
+    overflow-y: auto;
+}
+.history{
+    border-radius: 10px;
+    background-color: var(--light-black);
+}
+.day h6{
+    font-size: 13px;
+}
+.date{
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+}
+.none{
+    background-color: var(--red);
+}
+.done{
+    background-color: var(--green);
+}
+.notDone{
+    background-color: var(--yellow);
+}
+.update-form{   
+    width: 150px;
+    background-color: var(--dark-white);
+    border-radius: 15px;
+    top:100px;
+    left: 100px;
+    display: none;
+}
+.updatable-date{
+    cursor:pointer;
+}
+.close-form{
+    cursor:pointer;
+}

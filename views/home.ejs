@@ -1,0 +1,31 @@
+<link rel="stylesheet" href="/styles/home.css">
+
+<div class="app-head p-2">
+   
+    <p class="mb-0 text-secondary">Hello, Master!</p>
+    <h4 class="mb-0 text-light fw-600">Today <%= day %>, <%= today.slice(3, 5) %> </h4>
+</div>
+
+<div class="app-body">
+
+    <div class="app-functions my-3 d-flex justify-content-around align-items-center">
+        <a href="/history/" class="btn bg-purple">
+            <h5 class="mb-0 text-light">History</h5>
+        </a>
+        <a href="/habit/habit-form" class="btn bg-purple">
+            <h5 class="mb-0 text-light">New Habit</h5>
+        </a>
+    </div>
+
+    <div class="mt-3 mb-2 d-flex justify-content-between align-items-center">
+        <h5 class="fw-600 text-light">Today goals</h6>
+    </div>
+
+    <div class="habits-list">
+        <% for( habit of habits ) { %>
+        
+            <%- include('_habit', habit)  %> 
+
+        <% } %>
+    </div>
+</div>

@@ -1,0 +1,52 @@
+<link rel="stylesheet" href="/styles/history.css">
+
+<div class="history-head mb-1 p-2 d-flex align-content-center">
+  <a href="/" class="back d-flex justify-content-center align-items-center">
+    <h5 class="mb-0 text-light"><i class="bi bi-house-fill"></i></h5>
+  </a>
+  <h4 class="mb-0 fw-600 mx-auto text-light">History</h4>
+</div>
+
+<div class="history-body p-2">
+  <div class="history-list">
+
+    <% for( habit of habits ) { %>
+    <%- include('_history_habit', habit) %>
+    <% } %>
+
+  </div>
+
+  <div class="update-form position-absolute shadow p-2">
+
+    <div class="close-form ">
+      <h5 class="mb-1 text-danger text-end"><i class="bi bi-x-lg"></i></h5>
+    </div>
+    <form id="myForm" action="" method="post" class="text-center">
+      <div class="checks mb-3">
+        <div class="form-check d-flex justify-content-center align-items-center">
+          <input class="me-2 form-check-input" type="radio" name="status" value="none" id="flexRadioDefault1">
+          <label class="form-check-label" for="flexRadioDefault1">
+            None
+          </label>
+        </div>
+        <div class="form-check d-flex justify-content-center align-items-center">
+          <input class="me-2  form-check-input" type="radio" name="status" value="done" id="flexRadioDefault2">
+          <label class="form-check-label" for="flexRadioDefault1">
+            Done
+          </label>
+        </div>
+        <div class="form-check d-flex justify-content-center align-items-center">
+          <input class="me-2 form-check-input" type="radio" name="status" value="notDone" id="flexRadioDefault3">
+          <label class="form-check-label" for="flexRadioDefault1">
+            Not Done
+          </label>
+        </div>
+      </div>
+
+      <div class="mx-auto">
+        <button class="btn btn-primary update">Update</button>
+      </div>
+    </form>
+  </div>
+
+</div>

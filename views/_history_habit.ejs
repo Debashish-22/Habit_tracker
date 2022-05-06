@@ -1,0 +1,83 @@
+<div class="history p-2 mb-2">
+
+    <div class="history-task-title mb-3">
+        <h6 class="mb-0 fw-600 text-light"><%= habit.name %> </h6>
+    </div>
+
+    <div class="calendar d-flex justify-content-around align-items-center">    
+     
+        <% for( let i = 0 ; i < rangeList.length; i++ ) { %>
+            
+            <% if (i < 6) { %>
+                <div class="task-day">
+                    <div class="day">
+                        <h6 class="mb-1 text-capitalize text-light text-center"><%= rangeList[i].currentDay.slice(0,3) %> </h6>
+                    </div>
+
+                    <% if (moment(rangeList[i].currentDate, 'L').isBefore(moment(habit.startedOn, 'L'))) { %>
+                        <div class="date bg-dark d-flex justify-content-center align-items-center">
+                            <h6 class="mb-0 text-light"> <%= rangeList[i].currentDate.slice(3,5) %>  </h6>
+                        </div>
+                    <% } else { %>
+                        <% let record = habit.records.find(data => data.date === rangeList[i].currentDate) %> 
+                        
+                        <%  if (record){ %> 
+                            <div id=<%= habit.id %> assignedDate= <%= rangeList[i].currentDate %> class="date updatable-date <%= record.status %>  d-flex justify-content-center align-items-center">
+                                <h6 class="mb-0 text-light"> <%= rangeList[i].currentDate.slice(3,5) %>  </h6>
+                            </div>
+                        <% } else {%> 
+                            <div id=<%= habit.id %> assignedDate= <%= rangeList[i].currentDate %> class="date updatable-date none d-flex justify-content-center align-items-center">
+                                <h6 class="mb-0 text-light"> <%= rangeList[i].currentDate.slice(3,5) %>  </h6>
+                            </div>
+                        <% } %> 
+                       
+                    <% } %> 
+
+                </div>
+             
+            <% } else if( i === 6){ %>
+
+                <div class="task-day">
+                    <div class="day">
+                        <h6 class="mb-1 text-capitalize text-light text-center"><%= rangeList[i].currentDay.slice(0,3) %> </h6>
+                    </div>
+
+                    <% if ( habit.records.length !== 0 ) { %>
+
+                        <% if (habit.records.find(data => data.date === today)) { %>
+                            
+                            <% habit.records.map((data) =>{ %>
+                                
+                                <% if ( data.date === today ) { %>
+                                   
+                                    <% if (data.currentReps < totalReps) { %>
+                                        <div class="date bg-warning d-flex justify-content-center align-items-center">
+                                            <h6 class="mb-0 text-light"> <%= rangeList[i].currentDate.slice(3,5) %>  </h6>
+                                        </div>
+                                    <% } else if(data.currentReps === totalReps) { %>
+                                        <div class="date bg-success d-flex justify-content-center align-items-center">
+                                            <h6 class="mb-0 text-light"> <%= rangeList[i].currentDate.slice(3,5) %>  </h6>
+                                        </div>
+                                    <% } %>
+                                <% } %>
+                            <% }) %> 
+                
+                        <% } else {%>
+                            <div class=" date bg-danger d-flex justify-content-center align-items-center">
+                                <h6 class="mb-0 text-light"> <%= rangeList[i].currentDate.slice(3,5) %>  </h6>
+                            </div>
+                        <% } %> 
+                     
+                    <% } else { %>
+                        <div class="date bg-danger d-flex justify-content-center align-items-center">
+                            <h6 class="mb-0 text-light"> <%= rangeList[i].currentDate.slice(3,5) %>  </h6>
+                        </div>
+                    <% } %> 
+                 
+                </div>
+            <% } %>      
+              
+        <% } %> 
+    </div>
+</div>
+

@@ -1,0 +1,65 @@
+<div class="habit mb-2 d-flex justify-content-evenly align-items-center">
+
+    <% if ( habit.records.length !== 0 ) { %>
+
+        <% if (habit.records.find(data => data.date === today)) { %>
+            
+            <% habit.records.map((data) =>{ %>
+                
+                <% if ( data.date === today ) { %>
+                   
+                    <% if (data.currentReps < totalReps) { %>
+                        <h5><i class="bi bi-exclamation-circle-fill text-danger" title="pending"></i></h5>
+                    <% } else if(data.currentReps === totalReps) { %>
+                       <h5><i class="bi bi-check-circle-fill text-green" title="completed"></i></h5>
+                    <% } %>
+                <% } %>
+            <% }) %> 
+
+        <% } else {%>
+            <h5><i class="bi bi-exclamation-circle-fill text-danger" title="pending"></i></h5> 
+        <% } %> 
+     
+    <% } else { %>
+        <h5><i class="bi bi-exclamation-circle-fill text-danger" title="pending"></i></h5> 
+    <% } %> 
+     
+    <div class="habit-content p-2">
+        <div class="mb-3 d-flex justify-content-between align-items-center">
+            <div class="habit-details">
+                <h6 class="text-light fw-600 mb-1"><%= habit.name %> </h6>
+                <% let current %> 
+                <% if ( habit.records.length !== 0 ) { %>
+                <% habit.records.map((data) => {  %> 
+                  
+                    <% if( data.date === today ){ %>    
+                        <% current = data.currentReps %> 
+                    <% } %> 
+   
+                <% }) %>
+                <h6 class="text-light mb-0"><%= current ? current : 0 %> / <%= habit.totalReps %> times</h6>
+                <% } else { %>
+                    <h6 class="text-light mb-0">0 / <%= habit.totalReps %> times</h6>
+                <% } %> 
+                        
+            </div>
+        </div>
+        <div class="habit-functions mb-1 d-flex justify-content-around align-items-center">
+            <a href="/habit/update/?id=<%= habit.id %>&status=increment" class="function  d-flex justify-content-center align-items-center bg-warning" title="increment">
+                <h5 class="mb-0 text-dark"><i class="bi bi-plus"></i></h5>
+            </a>
+
+            <a href="/habit/update/?id=<%= habit.id %>&status=decrement" class="function  d-flex justify-content-center align-items-center bg-warning" title="decrement">
+                <h5 class="mb-0 text-dark"><i class="bi bi-dash"></i></h5>
+            </a>
+
+            <a href="/habit/update/?id=<%= habit.id %>&status=complete" class="function  d-flex justify-content-center align-items-center bg-primary" title="complete all">
+                <h5 class="mb-0 text-light"><i class="bi bi-check"></i></h5>
+            </a>
+
+            <a href="/habit/delete/<%= habit.id %>" class="function d-flex justify-content-center align-items-center bg-danger" title="delete habit">
+                <h5 class="mb-0 text-light"><i class="bi bi-x"></i></h5>
+            </a>
+        </div>
+    </div>
+</div>
