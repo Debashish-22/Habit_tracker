@@ -6,6 +6,12 @@ It's a habit tracker app where we can define habits and track them.
 
 > [video link]()
 
+## Images
+
+[Home page](https://drive.google.com/file/d/1N99AiCb0S3ukp642sT1XlbTk-31zMqsU/view?usp=sharing)
+
+[History page](https://drive.google.com/file/d/19Lj3tNTlDxo-9JodqZPYLadE4wO26BFc/view?usp=sharing)
+
 ## Tech Stack
 
 * [NodeJS](https://nodejs.org/en/) and [ExpressJS](https://expressjs.com/) (for backend server).
